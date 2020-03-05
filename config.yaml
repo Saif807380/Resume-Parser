@@ -4,46 +4,46 @@ data_schema_dir: ../data/schema
 
 extractors:
  experience:
-  - [Teacher, teaching, tutor]
+  - [teacher, teaching, tutor]
   - [developer, software developer, software engineer, dev]
   - trader
   - [marketing head, marketing manager]
   - [data analyst]
 
  platforms:
-  - Linux
-  - Windows
-  - [Mac, MacOS]
+  - linux
+  - windows
+  - [mac, macOS]
 
  database:
-  - SQL
-  - MySQL
-  - [Postgress, Postgresql]
-  - Oracle
-  - GraphQL
+  - sql
+  - mysql
+  - [postgress, postgresql]
+  - oracle
+  - graphql
 
- programming:
-  - [java, JavaEE]
-  - C
-  - C++
-  - C#
-  - .NET
-  - Matlab
-  - R
+ programming languages:
+  - [java, javaee]
+  - c
+  - c++
+  - c#
+  - .net
+  - matlab
+  - r
   - python
-  - VHDL
-  - PHP
-  - JavaScript
-  - HTML
-  - CSS
-  - Go
+  - vhdl
+  - php
+  - javascript
+  - html
+  - css
+  - go
 
 
  machinelearning:
   - [sklearn, scikit-learn, sk-learn]
   - [tensorflow, tf, tensor-flow]
   - keras
-  - PyTorch
+  - pytorch
   - h20
   - [neural networks,deep learning]
   - [data science,data analysis]

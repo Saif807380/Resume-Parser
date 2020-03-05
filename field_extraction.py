@@ -2,17 +2,13 @@ import logging
 from gensim.utils import simple_preprocess
 from lib import *
 
-EMAIL_REGEX = r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}"
-PHONE_REGEX = r"\(?(\d{3})?\)?[\s\.-]{0,2}?(\d{3})[\s\.-]{0,2}(\d{4})"
 
-#\(?(\d{3})?\)?[\s\.-]{0,2}?(\d{3})[\s\.-]{0,2}(\d{4})
 def candidate_name_extractor(input_string, nlp):
 
     doc = nlp(input_string)
 
     # Extract entities
     doc_entities = doc.ents
-    print(doc_entities)
     # Subset to person type entities
     doc_persons = filter(lambda x: x.label_ == 'PERSON', doc_entities)
     doc_persons = filter(lambda x: len(x.text.strip().split()) >= 2, doc_persons)
@@ -23,12 +19,12 @@ def candidate_name_extractor(input_string, nlp):
         return doc_persons[0]
     return "NOT FOUND"
 
-def extract_fields(df,resume_string):
+def extract_fields(df,resume_string,nlp):
     for extractor, items_of_interest in get_conf('extractors').items():
-        df[extractor] = extract_skills(resume_string, extractor, items_of_interest)
+        df[extractor] = extract_skills(resume_string, extractor, items_of_interest,nlp)
     return df
 
-def extract_skills(resume_text, extractor, items_of_interest):
+def extract_skills(resume_text, extractor, items_of_interest, nlp):
     potential_skills_dict = dict()
     matched_skills = set()
 
@@ -52,9 +48,12 @@ def extract_skills(resume_text, extractor, items_of_interest):
         # Iterate through aliases
         for skill_alias in skill_alias_list:
             # Add the number of matches for each alias
-            skill_matches += term_count(resume_text, skill_alias.lower())
+            skill_matches += term_count(resume_text, skill_alias.lower(), nlp)
 
         # If at least one alias is found, add skill name to set of skills
         if skill_matches > 0:
             matched_skills.add(skill_name)
-    return matched_skills
+    if len(matched_skills)>0:
+        return matched_skills
+    else: 
+        return "None"

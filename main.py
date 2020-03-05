@@ -9,25 +9,28 @@ import re
 from lib import *
 from field_extraction import *
 
+EMAIL_REGEX = r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}"
+PHONE_REGEX = r"\+?\d[\d -]{8,12}\d"
+#\(?(\d{3})?\)?[\s\.-]{0,2}?(\d{3})[\s\.-]{0,2}(\d{4})
+
 def transform(observations, nlp,resume_string):
     # TODO Docstring
     logging.info('Begin transform')
     # Extract candidate name
     observations['candidate_name'] = candidate_name_extractor(resume_string, nlp)
     # Extract contact fields
-    observations['email'] = term_match(resume_string, EMAIL_REGEX)
-    observations['phone'] = term_match(resume_string, PHONE_REGEX)
+    observations['email'] = regex_match(resume_string, EMAIL_REGEX)
+    observations['phone'] = regex_match(resume_string, PHONE_REGEX)
     # Extract skills
-    observations = extract_fields(observations,resume_string)
-    # Archive schema and return
-    logging.info('End transform')
+    observations = extract_fields(observations,resume_string,nlp)
     return observations, nlp
 
 def main():
-    resume_string = '''SAIF KAZI
+    resume_string = '''
+Saif Kazi
 saif1204kazi@gmail.com
-CE Undergrad, Graduating 2022
-8104679894
+CE Undergrad, Graduating 2022 
++91-810467894
 Mumbai
 Data Science enthusiast having keen interest
 in designing complete solutions.
@@ -37,8 +40,9 @@ EDUCATION
 SKILLS
 B.Tech in Computer Engineering
 Veermata Jijabai Technological Institute
+MacOS
 C
-C+ +
+C++
 Python
 Dart
 Flutter
@@ -101,7 +105,8 @@ Convolutional Neural Networks C
     nlp = spacy.load('en')
     observations = dict()
     observations, nlp = transform(observations, nlp,resume_string)
-    print(observations)
+    for k,v in observations.items():
+        print(f'{k:{30}} - {str(v):>{50}}')
     pass
 
 main()
