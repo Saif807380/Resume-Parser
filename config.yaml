@@ -7,6 +7,8 @@ extractors:
   - [Teacher, teaching, tutor]
   - [developer, software developer, software engineer, dev]
   - trader
+  - [marketing head, marketing manager]
+  - [data analyst]
 
  platforms:
   - Linux
@@ -18,6 +20,7 @@ extractors:
   - MySQL
   - [Postgress, Postgresql]
   - Oracle
+  - GraphQL
 
  programming:
   - [java, JavaEE]
@@ -31,14 +34,19 @@ extractors:
   - VHDL
   - PHP
   - JavaScript
+  - HTML
+  - CSS
+  - Go
 
 
  machinelearning:
   - [sklearn, scikit-learn, sk-learn]
   - [tensorflow, tf, tensor-flow]
   - keras
+  - PyTorch
   - h20
   - [neural networks,deep learning]
+  - [data science,data analysis]
 
 
  universities:
