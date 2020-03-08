@@ -14,14 +14,10 @@ PHONE_REGEX = r"\+?\d[\d -]{8,12}\d"
 #\(?(\d{3})?\)?[\s\.-]{0,2}?(\d{3})[\s\.-]{0,2}(\d{4})
 
 def transform(observations, nlp,resume_string):
-    # TODO Docstring
     logging.info('Begin transform')
-    # Extract candidate name
     observations['candidate_name'] = candidate_name_extractor(resume_string, nlp)
-    # Extract contact fields
     observations['email'] = regex_match(resume_string, EMAIL_REGEX)
     observations['phone'] = regex_match(resume_string, PHONE_REGEX)
-    # Extract skills
     observations = extract_fields(observations,resume_string,nlp)
     return observations, nlp
 

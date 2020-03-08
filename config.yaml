@@ -3,12 +3,17 @@ summary_output_directory: ../data/output
 data_schema_dir: ../data/schema
 
 extractors:
- experience:
-  - [teacher, teaching, tutor]
+ title:
+  - [teacher,tutor]
   - [developer, software developer, software engineer, dev]
   - trader
-  - [marketing head, marketing manager]
+  - [marketing manager,marketing head ,promotion manager,marketing executives,sales executive]
   - [data analyst]
+  - [interface developer,ui developer,front end developer]
+  - [mobile developer,android developer,ios developer]
+  - [cloud engineer, aws solutions architect]
+  - [blockchain developer]
+  - [legal manager]
 
  platforms:
   - linux
@@ -58,17 +63,24 @@ extractors:
   - [Veermata Jijabai Technological Institute,VJTI]
 
  languages:
-  - Dutch
-  - English
-  - German
-  - Spanish
-  - [Chinese, Mandarin]
+  - dutch
+  - english
+  - german
+  - spanish
+  - [chinese, mandarin]
+  - japanese
+  - portuguese
 
  hobbies:
   - [swimming, swim]
   - [soccer, football]
-  - painting
-  - reading
+  - [painting,art]
+  - [reading,avid reader]
+  - [singing,music]
+  - dancing
+  - [debating,elocution,]
+  - [writing,writer,literary artist]
+  - [photograpy,photographer]
 
  open-source:
   - github
