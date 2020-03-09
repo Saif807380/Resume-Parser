@@ -41,4 +41,4 @@ def extract_skills(resume_text, extractor, items_of_interest, nlp):
     if len(matched_skills)>0:
         return matched_skills
     else: 
-        return "None"
+        return {"None"}

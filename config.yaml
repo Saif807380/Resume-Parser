@@ -14,14 +14,14 @@ extractors:
   - [cloud engineer, aws solutions architect]
   - [blockchain developer]
   - [legal manager]
+  - [web developer,web designer, websit developer]
 
  platforms:
   - linux
   - windows
   - [mac, macOS]
 
- database:
-  - sql
+ databases:
   - mysql
   - [postgress, postgresql]
   - oracle
@@ -42,16 +42,19 @@ extractors:
   - html
   - css
   - go
+  - sql
 
 
- machinelearning:
+ machine learning:
   - [sklearn, scikit-learn, sk-learn]
   - [tensorflow, tf, tensor-flow]
   - keras
+  - theano
   - pytorch
   - h20
-  - [neural networks,deep learning]
+  - [deep learning,neural networks,convolutional neural networks]
   - [data science,data analysis]
+  - [natural language processing, nlp]
 
 
  universities:
