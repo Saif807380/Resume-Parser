@@ -1,6 +1,7 @@
 import inspect
 import logging
 import os
+print(os.getcwd())
 import sys
 import pandas as pd
 import spacy
@@ -9,8 +10,8 @@ import re
 from pathlib import Path
 import csv
 from lib import *
-from field_extraction import *
-from generate_top_skills import *
+from ResumeParser.field_extraction import *
+from ResumeParser.generate_top_skills import *
 
 EMAIL_REGEX = r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}"
 PHONE_REGEX = r"\+?\d[\d -]{8,12}\d"
